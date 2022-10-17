@@ -1,7 +1,14 @@
 <?php   
-    // DB params
-    define('DB_HOST', 'db'); // Tends to be localhost
-    define('DB_USER', 'lamp_docker');
+    // DB params lamp_docker
+    // define('DB_HOST', 'db'); // Tends to be localhost
+    // define('DB_USER', 'lamp_docker');
+    // define('DB_PASS', 'password');
+    // define('DB_NAME', 'lamp_docker');
+    // test
+
+    // DB params xampp
+    define('DB_HOST', 'localhost'); // Tends to be localhost
+    define('DB_USER', 'root');
     define('DB_PASS', 'password');
     define('DB_NAME', 'lamp_docker');
 
