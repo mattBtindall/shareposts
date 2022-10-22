@@ -18,12 +18,28 @@
                 return false;
             }
         }
-        
+
+        // Data here is being passed in from the form
+        public function login($email, $password) {
+            $this->db->query('SELECT * FROM ' . DB_PREFIX . 'users WHERE email = :email');
+            $this->db->bind(':email', $email);
+            $row = $this->db->single();
+
+            $hashed_passwsord = $row->password;
+            // if (password_verify($password, $hashed_passwsord)) {
+            //     return $row;
+            // } else {
+            //     return false;
+            // }
+
+            return (password_verify($password, $hashed_passwsord)) ? $row : false;
+        }
+
         public function findUserByEmail($email) {
             $this->db->query('SELECT * FROM ' . DB_PREFIX . 'users WHERE email = :email');
             $this->db->bind(':email', $email);
             $row = $this->db->single();
-            
+
             return $this->db->rowCount() > 0;
         }
     }

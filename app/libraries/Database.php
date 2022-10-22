@@ -18,7 +18,7 @@
         private $error;
 
         public function __construct() {
-            $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;    
+            $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
             $options = array(
                 PDO::ATTR_PERSISTENT => true, // increase performance by checking if there's already an established connection with the database
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // more elegant error handling
@@ -37,21 +37,21 @@
             $this->stmt = $this->dbh->prepare($sql);
         }
 
-        // Bind values 
+        // Bind values
         public function bind($param, $value, $type = null) {
             // Bind will get called for every param that is passed to the prepared statement
             if (is_null($type)) { // if it's not past in then run the switch
                 switch (true) { // true becuase always run the statement
-                    case is_int($value): 
+                    case is_int($value):
                         $type = PDO::PARAM_INT;
                         break;
-                    case is_bool($value): 
+                    case is_bool($value):
                         $type = PDO::PARAM_BOOL;
                         break;
-                    case is_null($value): 
+                    case is_null($value):
                         $type = PDO::PARAM_NULL;
                         break;
-                    default: 
+                    default:
                         $type = PDO::PARAM_STR;
                 }
             }
