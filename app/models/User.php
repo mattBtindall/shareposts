@@ -42,4 +42,10 @@
 
             return $this->db->rowCount() > 0;
         }
+
+        public function getUserById($userId) {
+            $this->db->query('SELECT * FROM ' . DB_PREFIX . 'users WHERE id = :id');
+            $this->db->bind(':id', $userId);
+            return $this->db->single();
+        }
     }
