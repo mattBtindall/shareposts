@@ -13,6 +13,7 @@
 
             <div class="navbar-nav ms-auto">
                 <?php if (isset($_SESSION['user_id'])) : ?>
+                    <span class="nav-link text-reset">Welcome <?= $_SESSION['user_name']; ?></span>
                     <a class="nav-link" href="<?= URL_ROOT; ?>/users/logout">Logout</a>
                 <?php else : ?>
                     <a class="nav-link" href="<?= URL_ROOT; ?>/users/register">Register</a>
